@@ -5,6 +5,8 @@ import (
 	"time"
 )
 
+var ErrTaskTitleTooShort = errors.New("Заголовок слишком короткий")
+
 type Task struct {
 	ID int
 	Title string
@@ -18,7 +20,7 @@ func (t *Task) Complete() {
 
 func (t *Task) Rename(title string) error {
 	if (len(title) < 4) {
-		return errors.New("Заголовок слишком короткий")
+		return ErrTaskTitleTooShort
 	}
 
 	t.Title = title
