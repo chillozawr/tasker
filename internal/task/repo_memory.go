@@ -5,8 +5,6 @@ type MemoryRepository struct {
 	nextID int
 }
 
-
-
 func NewMemoryRepository() *MemoryRepository {
 	return &MemoryRepository{
 		tasks: make(map[int]Task),
